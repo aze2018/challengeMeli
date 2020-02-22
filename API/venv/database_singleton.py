@@ -4,12 +4,12 @@ class Database_Singleton(object):
 
     _instance = None
 
-    connection = pymysql.connect(
-        host='aze2020.mysql.pythonanywhere-services.com',
-        user='aze2020',
-        password='meli1234',
-        database='aze2020$MELI_DB'
-    )
+   # connection = pymysql.connect(
+   #     host='aze2020.mysql.pythonanywhere-services.com',
+   #     user='aze2020',
+   #     password='meli1234',
+   #     database='aze2020$MELI_DB'
+   # )
 
     def __new__(cls):
         if  Database_Singleton._instance is None:

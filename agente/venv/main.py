@@ -12,7 +12,7 @@ def post_api(url, data):
     if rta.status_code == 200:
         print(rta.text)
     else:
-        print("Error")
+        print(rta.text)
 
 def get_os_information():
     return {'System_Name' : platform.system(), 'Node' : platform.node(), 'Version' : platform.version()}
@@ -44,11 +44,8 @@ def get_users_information():
         usernames_list.append(user.name)
     return usernames_list
 
-url_1 = "http://127.0.0.1:5000/"
-url_2 = "http://127.0.0.1:5000/Processor_Data"
-url_3 = "http://127.0.0.1:5000/Processes_Data"
-url_4 = "http://127.0.0.1:5000/Users_Data"
-
+#url_1 = "http://127.0.0.1:5000/"
+url_1 = "https://aze2020.pythonanywhere.com/"
 def main():
     Server_Data = get_server_data()
     OS_Data = get_os_information()
