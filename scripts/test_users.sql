@@ -1,0 +1,1 @@
+SELECT S.Server_ID, S.IP, E.Exec_date, (select U.User_Name from USERS U JOIN USERS_PER_EXECUTION UPE on U.User_ID = UPE.User_ID where UPE.Execution_ID = E.Exec_ID) AS 'Users' from Servers S join Executions E on E.Server_ID = S.Server_ID;
