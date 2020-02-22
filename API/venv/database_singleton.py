@@ -5,8 +5,8 @@ class Database_Singleton(object):
     _instance = None
 
     connection = pymysql.connect(
-        host='127.0.0.1',
-        user='root',
+        host='aze2020.mysql.pythonanywhere-services.com',
+        user='aze2020',
         password='meli1234',
         db='MELI_DB'
     )
