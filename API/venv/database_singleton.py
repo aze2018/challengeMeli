@@ -8,7 +8,7 @@ class Database_Singleton(object):
         host='aze2020.mysql.pythonanywhere-services.com',
         user='aze2020',
         password='meli1234',
-        db='MELI_DB'
+        database='aze2020$MELI_DB'
     )
 
     def __new__(cls):
