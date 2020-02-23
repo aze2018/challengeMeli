@@ -1,5 +1,4 @@
 import pymysql
-import sshtunnel
 
 class Database_Singleton(object):
 
@@ -8,7 +7,7 @@ class Database_Singleton(object):
  #   engine = create_engine('mysql+pymysql://aze2020:meli1234@aze2020.mysql.pythonanywhere-services.com/aze2020$MELI_DB', pool_recycle=299)
 
 #    connection = engine.connect()
-    
+
     connection = pymysql.connect(
         host='aze2020.mysql.pythonanywhere-services.com',
         user='aze2020',
