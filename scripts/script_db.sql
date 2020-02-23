@@ -74,8 +74,8 @@ CREATE TABLE PROCESSES_PER_EXECUTION
 DELIMITER $$
 CREATE PROCEDURE insert_os_data(system_name varchar(255), system_node varchar(255), system_version varchar(255))
 BEGIN
-	IF NOT EXISTS(SELECT 1 FROM MELI_DB.OS WHERE OS_Name = system_name and OS_Node = system_node and OS_Version = system_version) THEN		
-		insert into MELI_DB.OS (OS_Name, OS_Node, OS_Version) values (system_name, system_node, system_version);
+	IF NOT EXISTS(SELECT 1 FROM OS WHERE OS_Name = system_name and OS_Node = system_node and OS_Version = system_version) THEN		
+		insert into OS (OS_Name, OS_Node, OS_Version) values (system_name, system_node, system_version);
 	END IF;
 END$$
 DELIMITER ;
@@ -83,9 +83,9 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_proccesor_data(brand varchar(255), vendor varchar(255), speed varchar(255))
 BEGIN
-	IF NOT EXISTS(SELECT 1 FROM MELI_DB.Proccesors P WHERE
+	IF NOT EXISTS(SELECT 1 FROM Proccesors P WHERE
     	P.Brand = brand and P.Vendor = vendor and P.Speed = speed) THEN
-		insert into MELI_DB.Proccesors (Brand, Vendor, speed) values (brand, vendor, speed);
+		insert into Proccesors (Brand, Vendor, speed) values (brand, vendor, speed);
 	END IF;        
 END$$
 DELIMITER ;
@@ -98,18 +98,18 @@ system_name varchar(255), system_node varchar(255), system_version varchar(255)
 )
 BEGIN
     
-	set @OS_Id = (select OS_ID from MELI_DB.OS where OS_Name = system_name and OS_Node = system_node and OS_Version = system_version);
-	set @Proccesor_Id = (select Proccesor_ID from MELI_DB.Proccesors where Brand = brand and Vendor = vendor and Speed = speed);
+	set @OS_Id = (select OS_ID from OS where OS_Name = system_name and OS_Node = system_node and OS_Version = system_version);
+	set @Proccesor_Id = (select Proccesor_ID from Proccesors where Brand = brand and Vendor = vendor and Speed = speed);
 		
 	/*Aca es mas facil porqe nunca va a haber 2 IPS iguales*/
 
-	if not exists(select 1 from MELI_DB.Servers where IP = ip) then
-		insert into MELI_DB.Servers (OS_ID, Proccesor_ID, IP) values (@OS_Id, @Proccesor_ID, ip);
+	if not exists(select 1 from Servers where IP = ip) then
+		insert into Servers (OS_ID, Proccesor_ID, IP) values (@OS_Id, @Proccesor_ID, ip);
 	end if;
     
-    	set @server_id = (select Server_ID from MELI_DB.Servers where IP = ip);
+    	set @server_id = (select Server_ID from Servers where IP = ip);
     
-    	insert into MELI_DB.Executions (Server_ID, Exec_date) values (@server_id, fecha_ejecucion);
+    	insert into Executions (Server_ID, Exec_date) values (@server_id, fecha_ejecucion);
     
 END$$
 DELIMITER ;
@@ -117,12 +117,12 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_processes_data(fecha_ejecucion datetime, p_id int, p_name varchar(255))
 BEGIN
-	if not exists(select 1 from MELI_DB.Processes where PID = p_id and Process_Name = p_name ) then
-    		insert into MELI_DB.Processes (PID, Process_Name) values (p_id, p_name);
+	if not exists(select 1 from Processes where PID = p_id and Process_Name = p_name ) then
+    		insert into Processes (PID, Process_Name) values (p_id, p_name);
 	end if;
     
     	set @exec_id = (select Exec_ID from MELI_DB.Executions where Exec_date = fecha_ejecucion);
-    	insert into MELI_DB.PROCESSES_PER_EXECUTION (Execution_ID, PID) values (@exec_id, p_id);
+    	insert into PROCESSES_PER_EXECUTION (Execution_ID, PID) values (@exec_id, p_id);
     
 END$$
 DELIMITER ;
@@ -130,14 +130,14 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_users_data(fecha_ejecucion datetime, username varchar(255))
 BEGIN
-	if not exists (select 1 from MELI_DB.USERS where User_Name = username) then
-		insert into MELI_DB.USERS (User_Name) values (username);
+	if not exists (select 1 from USERS where User_Name = username) then
+		insert into USERS (User_Name) values (username);
 	end if;
     
-	set @exec_id = (select Exec_ID from MELI_DB.Executions where Exec_date = fecha_ejecucion);
-    	set @user_id = (select User_ID from MELI_DB.USERS where User_Name = username);
+	set @exec_id = (select Exec_ID from Executions where Exec_date = fecha_ejecucion);
+    	set @user_id = (select User_ID from USERS where User_Name = username);
     
-    	insert into MELI_DB.USERS_PER_EXECUTION (Execution_ID, User_ID) values (@exec_id, @user_id);
+    	insert into USERS_PER_EXECUTION (Execution_ID, User_ID) values (@exec_id, @user_id);
     
 END$$
 DELIMITER ;

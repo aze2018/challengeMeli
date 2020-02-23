@@ -1,19 +1,16 @@
 import pymysql
+import config
 
 class Database_Singleton(object):
 
     _instance = None
 
- #   engine = create_engine('mysql+pymysql://aze2020:meli1234@aze2020.mysql.pythonanywhere-services.com/aze2020$MELI_DB', pool_recycle=299)
-
-#    connection = engine.connect()
-
     connection = pymysql.connect(
-        host='aze2020.mysql.pythonanywhere-services.com',
-        user='aze2020',
-        passwd='meli1234',
-        port = 3306,
-        db='aze2020$MELI_DB'
+        host = config.MYSQL_HOST,
+        user = config.MYSQL_USER,
+        passwd = config.MYSQL_PASSWORD,
+        port = config.MYSQL_PORT,
+        db = config.MYSQL_DB
     )
 
     def __new__(cls):

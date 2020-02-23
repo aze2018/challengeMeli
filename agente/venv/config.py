@@ -1,0 +1,1 @@
+URL_API = 'https://aze2020.pythonanywhere.com/'
