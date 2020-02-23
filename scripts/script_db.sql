@@ -95,7 +95,7 @@ system_name varchar(255), system_node varchar(255), system_version varchar(255)
 BEGIN
     
 	set @OS_Id = (select OS_ID from OS where OS_Name = system_name and OS_Node = system_node and OS_Version = system_version);
-	set @Proccesor_Id = (select Proccesor_ID from Proccesors where Brand = brand and Vendor = vendor and Speed = speed);
+	set @Proccesor_Id = (select Proccesor_ID from Proccesors P where P.Brand = brand and P.Vendor = vendor and P.Speed = speed);
 		
 	/*Aca es mas facil porqe nunca va a haber 2 IPS iguales*/
 
