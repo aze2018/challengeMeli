@@ -116,7 +116,7 @@ BEGIN
     		insert into Processes (PID, Process_Name) values (p_id, p_name);
 	end if;
     
-    	set @exec_id = (select Exec_ID from MELI_DB.Executions where Exec_date = fecha_ejecucion);
+    	set @exec_id = (select Exec_ID from Executions where Exec_date = fecha_ejecucion);
     	insert into PROCESSES_PER_EXECUTION (Execution_ID, PID) values (@exec_id, p_id);
     
 END$$
