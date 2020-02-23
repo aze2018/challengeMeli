@@ -21,8 +21,7 @@ class Extractor:
     #----Campos: Nombre del Procesador - Velocidad - Fabricante
     def get_processor_information(self):
         processor_information = cpuinfo.get_cpu_info()
-        return {'Brand': processor_information['brand'], 'Speed': processor_information['hz_actual'],
-                'Vendor_ID': processor_information['vendor_id']}
+        return {'Brand': processor_information['brand'], 'Vendor_ID': processor_information['vendor_id']}
 
     #----Extraccion de Informacion de los Procesos
     #----Campos: Process ID - Nombre del Proceso

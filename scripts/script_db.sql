@@ -3,7 +3,6 @@ CREATE TABLE Proccesors
 	Proccesor_ID int not null auto_increment,
     	Brand varchar(255) not null,
     	Vendor varchar(255) not null,
-    	Speed varchar(20) not null,
     	PRIMARY KEY(Proccesor_ID)
 );
 
@@ -78,10 +77,10 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE PROCEDURE insert_proccesor_data(brand varchar(255), vendor varchar(255), speed varchar(255))
+CREATE PROCEDURE insert_proccesor_data(brand varchar(255), vendor varchar(255))
 BEGIN
-	IF NOT EXISTS(SELECT 1 FROM Proccesors P WHERE P.Brand = brand and P.Vendor = vendor and P.Speed = speed) THEN
-		insert into Proccesors (Brand, Vendor, speed) values (brand, vendor, speed);
+	IF NOT EXISTS(SELECT 1 FROM Proccesors P WHERE P.Brand = brand and P.Vendor = vendor) THEN
+		insert into Proccesors (Brand, Vendor) values (brand, vendor);
 	END IF;        
 END$$
 DELIMITER ;
@@ -89,13 +88,13 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_servers_data
 (
-fecha_ejecucion datetime, ip varchar(50),brand varchar(255), vendor varchar(255), speed varchar(255),
+fecha_ejecucion datetime, ip varchar(50),brand varchar(255), vendor varchar(255),
 system_name varchar(255), system_node varchar(255), system_version varchar(255)
 )
 BEGIN
     
 	set @OS_Id = (select OS_ID from OS where OS_Name = system_name and OS_Node = system_node and OS_Version = system_version);
-	set @Proccesor_Id = (select Proccesor_ID from Proccesors P where P.Brand = brand and P.Vendor = vendor and P.Speed = speed);
+	set @Proccesor_Id = (select Proccesor_ID from Proccesors P where P.Brand = brand and P.Vendor = vendor);
 		
 	/*Aca es mas facil porqe nunca va a haber 2 IPS iguales*/
 
