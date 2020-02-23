@@ -38,9 +38,10 @@ CREATE TABLE Executions
 
 CREATE TABLE Processes
 (
+	Indice int not null auto_increment, 	/*Utilizo un INDICE como PK ya que puede darse la situacion en donde hay 2 procesos con mismo PID y nombre distintos*/
 	PID int not null,
     	Process_Name varchar(255) not null,
-    	PRIMARY KEY(PID)
+    	PRIMARY KEY(Indice)
 );
 
 CREATE TABLE USERS
@@ -61,9 +62,9 @@ CREATE TABLE USERS_PER_EXECUTION
 CREATE TABLE PROCESSES_PER_EXECUTION
 (
 	Execution_ID int not null,
-    	PID int not null,
+    	Indice_P int not null,
 	FOREIGN KEY(Execution_ID) REFERENCES Executions(Exec_ID),
-    	FOREIGN KEY(PID) REFERENCES Processes(PID)
+    	FOREIGN KEY(Indice_P) REFERENCES Processes(Indice)
 );
 
 
@@ -117,8 +118,9 @@ BEGIN
 	end if;
     
     	set @exec_id = (select Exec_ID from Executions where Exec_date = fecha_ejecucion);
-    	insert into PROCESSES_PER_EXECUTION (Execution_ID, PID) values (@exec_id, p_id);
-    
+	set @indice_p = (select Indice from Processes where PID = p_id and Process_Name = p_name);
+
+    	insert into PROCESSES_PER_EXECUTION (Execution_ID, Indice_P) values (@exec_id, @indice_p);    
 END$$
 DELIMITER ;
 
