@@ -22,7 +22,6 @@ class Database_Singleton(object):
         self.connection.close()
 
     def insert_OS_Data(self, os_dic):
-        self.iniciar_conexion()
         mycursor = self.connection.cursor()
         mycursor.callproc('insert_os_data',(os_dic['System_Name'],os_dic['Node'],os_dic['Version']))
         self.connection.commit()
