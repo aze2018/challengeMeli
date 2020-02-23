@@ -9,7 +9,6 @@ class Database_Singleton(object):
         host = config.MYSQL_HOST,
         user = config.MYSQL_USER,
         passwd = config.MYSQL_PASSWORD,
-        port = config.MYSQL_PORT,
         db = config.MYSQL_DB
     )
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be0adeae-a1af-4cd0-8e63-a071618ab119" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/venv/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/database_singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/database_singleton.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
