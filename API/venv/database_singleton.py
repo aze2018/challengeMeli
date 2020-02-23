@@ -1,5 +1,5 @@
 import pymysql
-from config import *
+import config
 
 class Database_Singleton(object):
 
@@ -12,6 +12,7 @@ class Database_Singleton(object):
         port = config.MYSQL_PORT,
         db = config.MYSQL_DB
     )
+
 
     def __new__(cls):
         if  Database_Singleton._instance is None:
