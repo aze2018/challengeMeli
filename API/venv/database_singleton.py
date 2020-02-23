@@ -2,23 +2,27 @@ import pymysql
 import config
 
 class Database_Singleton(object):
-
     _instance = None
-
-    connection = pymysql.connect(
-        host = config.MYSQL_HOST,
-        user = config.MYSQL_USER,
-        passwd = config.MYSQL_PASSWORD,
-        db = config.MYSQL_DB
-    )
-
+    connection = None
 
     def __new__(cls):
         if  Database_Singleton._instance is None:
             Database_Singleton._instance = object.__new__(cls)
         return Database_Singleton._instance
 
+    def iniciar_conexion(self):
+        self.connection = pymysql.connect\
+        (
+            host = config.MYSQL_HOST,
+            user = config.MYSQL_USER,
+            passwd = config.MYSQL_PASSWORD,
+            db = config.MYSQL_DB
+        )
+    def cerrar_conexion(self):
+        self.connection.close()
+
     def insert_OS_Data(self, os_dic):
+        self.iniciar_conexion()
         mycursor = self.connection.cursor()
         mycursor.callproc('insert_os_data',(os_dic['System_Name'],os_dic['Node'],os_dic['Version']))
         self.connection.commit()
