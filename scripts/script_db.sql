@@ -1,7 +1,3 @@
-CREATE DATABASE MELI_DB;
-
-USE MELI_DB;
-
 CREATE TABLE Proccesors
 (
 	Proccesor_ID int not null auto_increment,
@@ -83,8 +79,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_proccesor_data(brand varchar(255), vendor varchar(255), speed varchar(255))
 BEGIN
-	IF NOT EXISTS(SELECT 1 FROM Proccesors P WHERE
-    	P.Brand = brand and P.Vendor = vendor and P.Speed = speed) THEN
+	IF NOT EXISTS(SELECT 1 FROM Proccesors P WHERE P.Brand = brand and P.Vendor = vendor and P.Speed = speed) THEN
 		insert into Proccesors (Brand, Vendor, speed) values (brand, vendor, speed);
 	END IF;        
 END$$
