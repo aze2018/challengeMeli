@@ -26,7 +26,7 @@ class Database_Singleton(object):
 
     def insert_Proccesor_Data(self, procc_dic):
         mycursor = self.connection.cursor()
-        mycursor.callproc('insert_proccesor_data', (procc_dic['Brand'], procc_dic['Vendor_ID'])
+        mycursor.callproc('insert_proccesor_data', (procc_dic['Brand'], procc_dic['Vendor_ID']))
         self.connection.commit()
         mycursor.close()
 
