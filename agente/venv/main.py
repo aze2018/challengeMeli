@@ -44,8 +44,8 @@ def get_users_information():
         usernames_list.append(user.name)
     return usernames_list
 
-#url_1 = "http://127.0.0.1:5000/"
-url_1 = "https://aze2020.pythonanywhere.com/"
+url_1 = "http://127.0.0.1:5000/"
+#url_1 = "https://aze2020.pythonanywhere.com/"
 def main():
     Server_Data = get_server_data()
     OS_Data = get_os_information()

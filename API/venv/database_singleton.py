@@ -1,15 +1,21 @@
 import pymysql
+import sshtunnel
 
 class Database_Singleton(object):
 
     _instance = None
 
-   # connection = pymysql.connect(
-   #     host='aze2020.mysql.pythonanywhere-services.com',
-   #     user='aze2020',
-   #     password='meli1234',
-   #     database='aze2020$MELI_DB'
-   # )
+ #   engine = create_engine('mysql+pymysql://aze2020:meli1234@aze2020.mysql.pythonanywhere-services.com/aze2020$MELI_DB', pool_recycle=299)
+
+#    connection = engine.connect()
+    
+    connection = pymysql.connect(
+        host='aze2020.mysql.pythonanywhere-services.com',
+        user='aze2020',
+        passwd='meli1234',
+        port = 3306,
+        db='aze2020$MELI_DB'
+    )
 
     def __new__(cls):
         if  Database_Singleton._instance is None:

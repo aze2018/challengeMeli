@@ -4,6 +4,7 @@
     <list default="true" id="be0adeae-a1af-4cd0-8e63-a071618ab119" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/database_singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/database_singleton.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../agente/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../agente/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../agente/venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../agente/venv/main.py" afterDir="false" />
     </list>
@@ -32,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../API" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agente" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="SvnConfiguration">
@@ -57,17 +58,17 @@
       <screen x="0" y="0" width="1920" height="899" />
     </state>
     <state x="418" y="108" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.899@0.0.1920.899" timestamp="1582074320341" />
-    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl" timestamp="1582394351957">
+    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl" timestamp="1582413057844">
       <screen x="0" y="0" width="1920" height="899" />
     </state>
-    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl/0.0.1920.899@0.0.1920.899" timestamp="1582394351957" />
+    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl/0.0.1920.899@0.0.1920.899" timestamp="1582413057844" />
     <state x="449" y="85" key="SettingsEditor" timestamp="1582078466849">
       <screen x="0" y="0" width="1920" height="899" />
     </state>
     <state x="449" y="85" key="SettingsEditor/0.0.1920.899@0.0.1920.899" timestamp="1582078466849" />
-    <state x="548" y="239" key="com.intellij.ide.util.TipDialog" timestamp="1582376382220">
+    <state x="548" y="239" key="com.intellij.ide.util.TipDialog" timestamp="1582410847878">
       <screen x="0" y="0" width="1920" height="899" />
     </state>
-    <state x="548" y="239" key="com.intellij.ide.util.TipDialog/0.0.1920.899@0.0.1920.899" timestamp="1582376382220" />
+    <state x="548" y="239" key="com.intellij.ide.util.TipDialog/0.0.1920.899@0.0.1920.899" timestamp="1582410847878" />
   </component>
 </project>
