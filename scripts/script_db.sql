@@ -98,7 +98,7 @@ BEGIN
 		
 	/*Aca es mas facil porqe nunca va a haber 2 IPS iguales*/
 
-	if not exists(select 1 from Servers where IP = ip) then
+	if not exists(select 1 from Servers S where S.IP = ip) then
 		insert into Servers (OS_ID, Proccesor_ID, IP) values (@OS_Id, @Proccesor_ID, ip);
 	end if;
     
