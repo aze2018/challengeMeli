@@ -37,7 +37,7 @@ CREATE TABLE Executions
 
 CREATE TABLE Processes
 (
-	Indice int not null auto_increment, 	/*Utilizo un INDICE como PK ya que puede darse la situacion en donde hay 2 procesos con mismo PID y nombre distintos*/
+	Indice int not null auto_increment, 	/*Utilizo un INDICE como PK ya que puede darse la situacion en donde hay 2 procesos con mismo PID (en SO diferentes) y nombre distintos*/
 	PID int not null,
     	Process_Name varchar(255) not null,
     	PRIMARY KEY(Indice)
@@ -102,7 +102,7 @@ BEGIN
 		insert into Servers (OS_ID, Proccesor_ID, IP) values (@OS_Id, @Proccesor_ID, ip);
 	end if;
     
-    	set @server_id = (select Server_ID from Servers where IP = ip);
+    	set @server_id = (select Server_ID from Servers S where S.IP = ip);
     
     	insert into Executions (Server_ID, Exec_date) values (@server_id, fecha_ejecucion);
     
@@ -116,8 +116,8 @@ BEGIN
     		insert into Processes (PID, Process_Name) values (p_id, p_name);
 	end if;
     
-    	set @exec_id = (select Exec_ID from Executions where Exec_date = fecha_ejecucion);
-	set @indice_p = (select Indice from Processes where PID = p_id and Process_Name = p_name);
+    	set @exec_id = (select Exec_ID from Executions E where E.Exec_date = fecha_ejecucion);
+	set @indice_p = (select Indice from Processes P where P.PID = p_id and P.Process_Name = p_name);
 
     	insert into PROCESSES_PER_EXECUTION (Execution_ID, Indice_P) values (@exec_id, @indice_p);    
 END$$
@@ -126,12 +126,12 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_users_data(fecha_ejecucion datetime, username varchar(255))
 BEGIN
-	if not exists (select 1 from USERS where User_Name = username) then
+	if not exists (select 1 from USERS U where U.User_Name = username) then
 		insert into USERS (User_Name) values (username);
 	end if;
     
-	set @exec_id = (select Exec_ID from Executions where Exec_date = fecha_ejecucion);
-    	set @user_id = (select User_ID from USERS where User_Name = username);
+	set @exec_id = (select Exec_ID from Executions E where E.Exec_date = fecha_ejecucion);
+    	set @user_id = (select User_ID from USERS U where U.User_Name = username);
     
     	insert into USERS_PER_EXECUTION (Execution_ID, User_ID) values (@exec_id, @user_id);
     
