@@ -1,5 +1,5 @@
 import pymysql
-import config
+from config import *
 
 class Database_Singleton(object):
 

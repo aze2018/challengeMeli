@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from flask_restful import Resource, Api
+from flask_restful import Api
 from database_singleton import Database_Singleton
 
 app = Flask(__name__)
