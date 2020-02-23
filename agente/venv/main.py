@@ -13,8 +13,8 @@ def post_api(url, data):
 def main():
     #---------Extraccion de Informacion---------
     extractor = Extractor()
-    Server_Data = extractor.get_server_data()
     OS_Data = extractor.get_os_information()
+    Server_Data = extractor.get_server_data()
     Processor_Data = extractor.get_processor_information()
     Processes_data = extractor.get_processes_information()
     Users_Data = extractor.get_users_information()
