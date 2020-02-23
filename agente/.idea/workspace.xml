@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c7043425-cbf7-406a-8c24-42bd7ffdc7c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API/venv/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/venv/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API/venv/database_singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/venv/database_singleton.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/getters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Extractor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scripts/script_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../scripts/script_db.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +31,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../agente" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -49,10 +47,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl" timestamp="1582381212092">
+    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl" timestamp="1582476293439">
       <screen x="0" y="0" width="1920" height="899" />
     </state>
-    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl/0.0.1920.899@0.0.1920.899" timestamp="1582381212092" />
+    <state x="693" y="153" width="528" height="591" key="FileChooserDialogImpl/0.0.1920.899@0.0.1920.899" timestamp="1582476293439" />
     <state x="626" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1582434260960">
       <screen x="0" y="0" width="1920" height="899" />
     </state>

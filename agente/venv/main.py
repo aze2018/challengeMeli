@@ -1,6 +1,7 @@
 import requests
 import json
-import getters, config
+import config
+from Extractor import *
 
 def post_api(url, data):
     rta = requests.post(url, data = json.dumps(data))
@@ -10,15 +11,24 @@ def post_api(url, data):
         print("Error: Intente nuevamente")
 
 def main():
-    Server_Data = get_server_data()
-    OS_Data = get_os_information()
-    Processor_Data = get_processor_information()
-    Processes_data = get_processes_information()
-    Users_Data = get_users_information()
+    #---------Extraccion de Informacion---------
+    extractor = Extractor()
+    Server_Data = extractor.get_server_data()
+    OS_Data = extractor.get_os_information()
+    Processor_Data = extractor.get_processor_information()
+    Processes_data = extractor.get_processes_information()
+    Users_Data = extractor.get_users_information()
+    #-------------------------------------------
 
-    dictonary_set = {'OS':OS_Data, 'Proccesor':Processor_Data, 'Server':Server_Data,'Users':Users_Data ,'Processes':Processes_data}
+    #------Envio de Informacion a la API--------
+    dictonary_set = {'OS':OS_Data,
+                     'Proccesor':Processor_Data,
+                     'Server':Server_Data,
+                     'Users':Users_Data ,
+                     'Processes':Processes_data}
 
     post_api(config.URL_API,dictonary_set)
+    #-------------------------------------------
 
 main()
 
