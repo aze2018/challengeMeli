@@ -1,0 +1,1 @@
+select Server_ID, Exec_date, (select Process_Name from Processes P where P.Indice = PPE.Indice_P) as 'Procesos Ejecutando' from Executions E join PROCESSES_PER_EXECUTION PPE on E.Exec_ID = PPE.Execution_ID;

@@ -1,0 +1,1 @@
+SELECT S.Server_ID, S.IP, E.Exec_date, (select count(*) from USERS_PER_EXECUTION UPE where UPE.Execution_ID = E.Exec_ID ) AS 'Cantidad de usuarios por servidor y ejecucion' from Servers S join Executions E on E.Server_ID = S.Server_ID;

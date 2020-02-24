@@ -1,0 +1,1 @@
+select IP, OS_Name, Brand from Servers S join OS O on S.OS_ID = O.OS_ID join Proccesors P on S.Proccesor_ID = P.Proccesor_ID;
