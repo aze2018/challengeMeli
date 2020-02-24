@@ -1,8 +1,8 @@
 import platform
 import cpuinfo
 import psutil
-import socket
 import datetime
+from utils import *
 
 #---------Clases para extraer Informacion del Servidor
 
@@ -15,7 +15,7 @@ class Extractor:
     #----Extraccion de Informacion del servidor
     #----Campos: IP del Servidor - Datetime de extraccion
     def get_server_data(self):  # IP Y FEcha
-        return {'IP': socket.gethostbyname(socket.gethostname()), 'Date': str(datetime.datetime.now())}  # revisar
+        return {'IP': get_ip(), 'Date': str(datetime.datetime.now())}
 
     #----Extraccion de Informacion del Procesador
     #----Campos: Nombre del Procesador - Velocidad - Fabricante
